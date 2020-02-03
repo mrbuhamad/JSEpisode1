@@ -6,8 +6,14 @@
  */
 function greet(name) {
   // Your code here
+  if (!name) {
+    console.log("Hello");
+  } else {
+    console.log(`Hello ${name}`);
+  }
 }
 
+/********************************************************************************************************** */
 /**
  * isOdd(n):
  * - receives a number n
@@ -15,8 +21,12 @@ function greet(name) {
  */
 function isOdd(n) {
   // Your code here
+  if (n % 2 === 0) return false;
+  return true;
 }
 
+/**********************************************************************************************************
+ * 
 /**
  * oddsSmallerThan(n):
  * - receives a number n
@@ -30,8 +40,18 @@ function isOdd(n) {
  */
 function oddsSmallerThan(n) {
   // Your code here
+  // if (isOdd(n)=== false ){
+  //   return ( (n/2)-1);}
+  // else if(isOdd(n)=== true){
+  //    return ( (n/2)-0.5):}
+
+  if (isOdd(n)) return (n - 1) / 2;
+  return n / 2;
 }
 
+oddsSmallerThan(7);
+
+/**********************************************************************************************************
 /**
  * squareOrDouble(n):
  * - receives a number n
@@ -44,8 +64,13 @@ function oddsSmallerThan(n) {
  */
 function squareOrDouble(n) {
   // Your code here
+  if (isOdd(n)) return n * n;
+  return n * 2;
 }
 
+/**********************************************************************************************************
+ * 
+ * 
 /**
  * ageFromBirthDate(birthDate):
  * - receives a birthDate as a STRING of the form <YYYYMMDD>
@@ -66,8 +91,29 @@ function ageFromBirthDate(birthDate) {
   const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
 
   // Your code here
+  const year = birthDate.slice(0, 4);
+  const month = birthDate.slice(4, 6);
+  const day = birthDate.slice(6);
+  console.log(year);
+  console.log(month);
+  console.log(day);
+
+  const bir = new Date(`${month}/${day}/${year}`);
+  const today = new Date();
+  console.log(bir);
+
+  let age = today - bir;
+
+  age = age / _MS_PER_YEAR;
+
+  age = Math.floor(age);
+
+  return age;
 }
 
+ageFromBirthDate("19971110");
+
+/*******************   call function ******************** */
 module.exports = {
   greet,
   isOdd,
